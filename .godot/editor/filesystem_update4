@@ -1,0 +1,13 @@
+res://Scenes/UiButton/UiButton.tscn
+res://Scenes/UiButton/UiButton.cs
+res://Globals/ScoreManager.cs
+res://Scenes/Main/Main.cs
+res://Scenes/OutOfTime/OutOfTime.cs
+res://Globals/SignalManager.cs
+res://Scenes/ShakeCam/ShakeCam.cs
+res://Globals/GameManager.cs
+res://Scenes/Level/Level.cs
+res://Globals/SoundManager.cs
+res://Scenes/ObjectMaker/ObjectMaker.cs
+res://Scenes/Player/Player.cs
+res://Scenes/Main/Main.tscn
