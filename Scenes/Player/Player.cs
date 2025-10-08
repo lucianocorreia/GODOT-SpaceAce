@@ -27,11 +27,37 @@ public partial class Player : Area2D
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta)
     {
+        var desiredPosition = GlobalPosition + GetInput() * _speed * (float)delta;
+        GlobalPosition = desiredPosition.Clamp(_upperLeft, _lowerRight);
+
+        if (Input.IsActionJustPressed("shoot"))
+        {
+            Shoot();
+        }
+    }
+
+    private void Shoot()
+    {
+        SignalManager.EmitOnCreateBullet(GlobalPosition, _bulletDirection, _bulletSpeed, (int)Defs.BulletType.Player);
     }
 
     private Vector2 GetInput()
     {
-        Vector2 v = Vector2.Zero;
+        Vector2 v = new(
+            Input.GetAxis("left", "right"),
+            Input.GetAxis("up", "down")
+        );
+
+        if (v.X != 0)
+        {
+            _animationPlayer.Play("turn");
+            _sprite2D.FlipH = v.X > 0;
+        }
+        else
+        {
+            _animationPlayer.Play("fly");
+        }
+
         return v.Normalized();
     }
 

@@ -3,45 +3,17 @@ using System;
 
 public partial class ObjectMaker : Node2D
 {
-    
-    public override void _Ready() 
-    { 
+
+    private PackedScene playerBulletScene = GD.Load<PackedScene>("res://Scenes/Bullets/PlayerBullet.tscn");
+
+    public override void _Ready()
+    {
         SignalManager.Instance.OnCreateExplosion += OnCreateExplosion;
         SignalManager.Instance.OnCreateHomingMissile += OnCreateHomingMissile;
         SignalManager.Instance.OnCreatePowerUp += OnCreatePowerUp;
         SignalManager.Instance.OnCreateRandomPowerUp += OnCreateRandomPowerUp;
         SignalManager.Instance.OnCreateBullet += OnCreateBullet;
     }
-
-    private void OnCreateBullet(Vector2 startPos, Vector2 direction, float speed, int type)
-    {
-        throw new NotImplementedException();
-    }
-
-
-    private void OnCreateRandomPowerUp(Vector2 startPos)
-    {
-        throw new NotImplementedException();
-    }
-
-
-    private void OnCreatePowerUp(Vector2 startPos, int puType)
-    {
-        throw new NotImplementedException();
-    }
-
-
-    private void OnCreateHomingMissile(Vector2 startPos)
-    {
-        throw new NotImplementedException();
-    }
-
-
-    private void OnCreateExplosion(Vector2 startPos, int explosionType)
-    {
-        throw new NotImplementedException();
-    }
-
 
     public override void _ExitTree()
     {
@@ -52,11 +24,48 @@ public partial class ObjectMaker : Node2D
         SignalManager.Instance.OnCreateRandomPowerUp -= OnCreateRandomPowerUp;
     }
 
+    private PackedScene GetBulletScene(int type)
+    {
+        Defs.BulletType bulletType = (Defs.BulletType)type;
+        return bulletType switch
+        {
+            Defs.BulletType.Player => playerBulletScene,
+            _ => playerBulletScene,
+        };
+    }
+
+    private void OnCreateBullet(Vector2 startPos, Vector2 direction, float speed, int type)
+    {
+        var newScene = GetBulletScene(type).Instantiate<BaseBullet>();
+        newScene.Setup(direction, speed);
+        CallDeferred(MethodName.AddObject, newScene, startPos);
+    }
+
+    private void OnCreateRandomPowerUp(Vector2 startPos)
+    {
+        throw new NotImplementedException();
+    }
+
+    private void OnCreatePowerUp(Vector2 startPos, int puType)
+    {
+        throw new NotImplementedException();
+    }
+
+    private void OnCreateHomingMissile(Vector2 startPos)
+    {
+        throw new NotImplementedException();
+    }
+
+    private void OnCreateExplosion(Vector2 startPos, int explosionType)
+    {
+        throw new NotImplementedException();
+    }
+
     private void AddObject(Node2D node, Vector2 globalPosition)
     {
         node.GlobalPosition = globalPosition;
         AddChild(node);
     }
 
-    
+
 }

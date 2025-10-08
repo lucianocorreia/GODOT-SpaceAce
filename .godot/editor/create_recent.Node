@@ -1,2 +1,8 @@
+AnimatedSprite2D
+VisibleOnScreenNotifier2D
+Sprite2D
+HitBox
+CollisionShape2D
+Area2D
 Label
 TextureButton

@@ -11,3 +11,12 @@ res://Globals/SoundManager.cs
 res://Scenes/ObjectMaker/ObjectMaker.cs
 res://Scenes/Player/Player.cs
 res://Scenes/Main/Main.tscn
+res://Scenes/Level/Level.tscn
+res://Scenes/Hitbox/HitBox.tscn
+res://Scenes/Hitbox/HitBox.cs
+res://Scenes/Bullets/BaseBullet.tscn
+res://Scenes/Bullets/BaseBullet.cs
+res://Scenes/Bullets/PlayerBullet.tscn
+res://Scenes/Bullets/EnemyBullet.tscn
+res://Scenes/Bullets/EnemyBomb.tscn
+res://Scenes/Player/Player.tscn

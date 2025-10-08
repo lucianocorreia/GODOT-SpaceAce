@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bh4asv8iqjdhc"]
+
+[ext_resource type="PackedScene" uid="uid://dy2m00nol0crj" path="res://Scenes/Hitbox/HitBox.tscn" id="1_nr3pm"]
+[ext_resource type="PackedScene" uid="uid://j57uaaweb83i" path="res://Scenes/OutOfTime/OutOfTime.tscn" id="2_4jqff"]
+[ext_resource type="Script" uid="uid://b1ij1oqfps3nb" path="res://Scenes/Bullets/BaseBullet.cs" id="2_7dyjx"]
+
+[node name="BaseBullet" node_paths=PackedStringArray("visibleOnScreenNotifier2D") instance=ExtResource("1_nr3pm")]
+script = ExtResource("2_7dyjx")
+visibleOnScreenNotifier2D = NodePath("VisibleOnScreenNotifier2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="1"]
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." index="2"]
+
+[node name="OutOfTime" parent="." index="3" instance=ExtResource("2_4jqff")]
+_lifeTime = 10.0

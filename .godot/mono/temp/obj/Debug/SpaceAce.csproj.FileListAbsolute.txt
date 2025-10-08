@@ -15,3 +15,4 @@
 /Users/correia/github.com/dev/godot/SpaceAce/.godot/mono/temp/obj/Debug/SpaceAce.pdb
 /Users/correia/github.com/dev/godot/SpaceAce/.godot/mono/temp/obj/Debug/SpaceAce.genruntimeconfig.cache
 /Users/correia/github.com/dev/godot/SpaceAce/.godot/mono/temp/obj/Debug/ref/SpaceAce.dll
+/Users/correia/github.com/dev/godot/SpaceAce/.godot/mono/temp/obj/Debug/SpaceAce.sourcelink.json
